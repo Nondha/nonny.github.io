@@ -3,8 +3,8 @@
   <metacharset="utf-8">
   </title>ทดสอบ</title>
   <body bgcolor="#99ccff">
-    <h1></h1><marque>hello_fellas</marque></h1>
-    <h2><marque direction="up">hello_fellas</h2>
+    <h1></h1><marque></marque></h1>
+    <h2><marque direction="up"></h2>
     <h3><marque direction="down">hello_fellas</h3>
     <h4><marque direction="right">hello_fellas></h4>
     <h5><marque scrollamount="1">hello_fellas</h5>
