@@ -1,46 +1,80 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>วันสันติภาพไทย</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<title>แบบฝึกหัด</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    body{ font-family: "Charm", cursive;
+  font-weight: 400;
+  font-style: normal;}
     
-    body{font-family: "Thasadith", sans-serif;
-  font-weight: 700;
-  font-style: italic;}
+    header{background-color:blue;
+    padding: 30px;
+    text-align: center;}
+    
+    .content{background-color:green;
+    padding: 40px;
+    max-width: 800px;
+    margin: auto;}
 
-    header{background-color:#102FAD;
-           padding: 20px;
-           text-align: center;}
-
-    section{background-color:#0F9F0A;
-            padding:15px;
-            margin: 20px auto;
-            width: 80%;
-            border-radius: 10px;}
-
-    p{text-indent:2em;}
-
-    mark{background-color:#C709A8;
-         color:white;}
-
-    button{padding:8px 15px;
-           margin: 5px;
-           border:none;
-           border-radius: 5px;
-           background-color:#000000
-           color:white;
-           cursor:pointer;}
-    .correct{background-color:green;}
-    .incorrect{background-color:red;}
-           
-           </style> 
+    .choices button{display: block;
+                    margin: 5px 0;
+                    padding: 10px;
+                    width: 100%;
+                    background-color:skyblue;
+                    cursor: pointer;}
+    
+    .correct{background-color:green !important;}
+  .incorrect{background-color:red !important;}
+    
+  </style>
 </head>
-  <body background="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.xn--o3cha2abdldn4dd6d6jb0ewg.com%2F%25E0%25B8%25A7%25E0%25B8%25AD%25E0%25B8%25A5%25E0%25B9%2580%25E0%25B8%259B%25E0%25B9%2580%25E0%25B8%259B%25E0%25B8%25AD%25E0%25B8%25A3%25E0%25B9%258C%25E0%25B8%25AA%25E0%25B8%25B1%25E0%25B9%2588%25E0%25B8%2587%25E0%25B8%259C%25E0%25B8%25A5%25E0%25B8%25B4%25E0%25B8%2595-%25E0%25B8%2595%25E0%25B8%25B4%25E0%25B8%2594%25E0%25B8%259D%2F&psig=AOvVaw3nzp_cud46ILQjA32qlWwH&ust=1755413508784000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCMCe_Y7fjo8DFQAAAAAdAAAAABAE"
-    <header>
-    <h1>วันสันติภาพไทย 16 สิงหาคม ร่วมเชิดชูวีรบุรุษผู้คืนสันติภาพ</h1>
-  </header>
-  </body>
+<body background="https://cdn.britannica.com/32/234732-050-0E5E77CA/DNA-strands-concept-illustration.jpg">
+<header>
+  <h1 style="color:black;">แบบฝึกหัดวิทยาศาสตร์</h1>
+</header>
+  <div class="content">
+    1. วันสันติภาพไทยตรงกับวันที่เท่าไหร่?
+<div class="choices">
+  <button onclick="checkAnswer(this,true)">ก. </button>
+  <button onclick="checkAnswer(this,false)">ข. </button>
+  <button onclick="checkAnswer(this,false)">ค. </button>
+  <button onclick="checkAnswer(this,false)">ง. </button>
+</div>
+<br><br>
+  
+   2. 
+<div class="choices">
+  <button onclick="checkAnswer(this,true)">ก.  </button>
+  <button onclick="checkAnswer(this,false)">ข.  </button>
+  <button onclick="checkAnswer(this,false)">ค. </button>
+  <button onclick="checkAnswer(this,false)">ง. </button>
+</div>
+  <br><br>
+
+   3. 
+<div class="choices">
+  <button onclick="checkAnswer(this,true)">ก. </button>
+  <button onclick="checkAnswer(this,false)">ข. </button>
+  <button onclick="checkAnswer(this,false)">ค. </button>
+  <button onclick="checkAnswer(this,false)">ง. </button>
+</div>
+  <br><br>
+
+  4. 
+<div class="choices">
+  <button onclick="checkAnswer(this,falsee)">ก. </button>
+  <button onclick="checkAnswer(this,false)">ข. </button>
+  <button onclick="checkAnswer(this,true)">ค. </button>
+  <button onclick="checkAnswer(this,false)">ง. </button>
+</div>
+  <br><br>
+  <script>
+    function checkAnswer(btn,correct)
+      {btn.parentElement.querySelectorAll('button').forEach(b => b.disabled =true);
+       btn.classList.add(correct? 'correct' : 'incorrect');}
+  </script>
+</body>
 </html>
