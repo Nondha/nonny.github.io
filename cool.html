@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AskAI</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      height: 70px;
+      background: #111827;
+      border-bottom: 1px solid #273244;
+      display: flex;
+      align-items: center;
+      padding: 0 25px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .logo {
+      color: #60a5fa;
+    }
+
+    /* Chat area */
+    #chat {
+      flex: 1;
+      overflow-y: auto;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .message {
+      max-width: 750px;
+      padding: 15px 18px;
+      border-radius: 15px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    .user {
+      background: #2563eb;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .ai {
+      background: #1e293b;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
+    .typing {
+      color: #94a3b8;
+      font-style: italic;
+    }
+
+    /* Input section */
+    .input-container {
+      padding: 20px;
+      background: #111827;
+      border-top: 1px solid #273244;
+    }
+
+    .input-box {
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    #userInput {
+      flex: 1;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid #374151;
+      background: #1f2937;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    #userInput:focus {
+      border-color: #60a5fa;
+    }
+
+    button {
+      padding: 0 22px;
+      border: none;
+      border-radius: 12px;
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .info {
+      text-align: center;
+      color: #64748b;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <span class="logo">AskAI</span>
+    &nbsp; — Ask me anything
+  </header>
+
+  <main id="chat">
+    <div class="message ai">
+      👋 Hi! I'm AskAI. Ask me anything!
+    </div>
+  </main>
+
+  <div class="input-container">
+    <div class="input-box">
+      <input
+        id="userInput"
+        type="text"
+        placeholder="Ask anything..."
+        autocomplete="off"
+      >
+
+      <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <div class="info">
+      AskAI can answer questions, explain topics, write text, brainstorm ideas, and more.
+    </div>
+  </div>
+
+  <script>
+    const input = document.getElementById("userInput");
+    const chat = document.getElementById("chat");
+
+    // Send message when Enter is pressed
+    input.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        sendMessage();
+      }
+    });
+
+    function addMessage(text, type) {
+      const message = document.createElement("div");
+
+      message.classList.add("message", type);
+      message.textContent = text;
+
+      chat.appendChild(message);
+
+      // Automatically scroll to bottom
+      chat.scrollTop = chat.scrollHeight;
+
+      return message;
+    }
+
+    async function sendMessage() {
+      const text = input.value.trim();
+
+      if (!text) {
+        return;
+      }
+
+      // Display user's message
+      addMessage(text, "user");
+
+      // Clear input
+      input.value = "";
+
+      // Show typing indicator
+      const typing = addMessage("AI is thinking...", "ai");
+      typing.classList.add("typing");
+
+      // Simulate AI thinking
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      typing.remove();
+
+      // Demo response
+      const response = getDemoResponse(text);
+
+      addMessage(response, "ai");
+    }
+
+    function getDemoResponse(question) {
+
+      const q = question.toLowerCase();
+
+      if (q.includes("hello") || q.includes("hi")) {
+        return "Hello! 👋 What would you like to know?";
+      }
+
+      if (q.includes("your name")) {
+        return "I'm AskAI, your browser-based AI assistant.";
+      }
+
+      if (q.includes("html")) {
+        return "HTML stands for HyperText Markup Language. It is used to create the structure of webpages.";
+      }
+
+      if (q.includes("javascript")) {
+        return "JavaScript is a programming language commonly used to make webpages interactive.";
+      }
+
+      if (q.includes("what can you do")) {
+        return "I can answer questions, explain concepts, help with programming, brainstorm ideas, write text, and much more — once connected to a real AI API.";
+      }
+
+      return "I received your question:\n\n\"" + question + "\"\n\nThis is currently a demo AI, so it doesn't have a real language model connected yet. Connect an AI API to make me answer any question.";
+    }
+  </script>
+
+</body>
+</html>
